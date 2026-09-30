@@ -13,13 +13,14 @@
 
 ローカルでDockerビルド、設定なしコンテナの本番起動拒否（終了コード1）、モック起動入口からのHTTP呼び出しも成功しました。実行依存のnpm auditは脆弱性0件でした。CIはこれらに加え実行依存の脆弱性監査、Dockerビルド、設定なし本番起動の拒否を行います。Dockerビルド成功は、本番サービスへの疎通やOAuth設定の成功を意味しません。
 
+実装コミット`8009fec`はGitHub Actionsでも成功しました：[PushのCI](https://github.com/4k29/icloud-mail-mcp/actions/runs/36715841578)、[PRのCI](https://github.com/4k29/icloud-mail-mcp/actions/runs/36715884672)。型チェック・ビルド・33テスト・実行依存監査・Dockerビルド・設定不足の本番起動拒否が対象です。
+
 ## 未実施の検証
 
 - 実際のiCloud Mailでの接続・日本語検索・各種MIME・未読不変
 - Auth0テナントのCIMD登録、resource/audience、本人scope、失効・更新
 - ChatGPTの実画面からのOAuth接続・3ツール呼び出し
 - Fly.ioへの配置・外向きTCP 993/TLS・HTTP・コールドスタート
-- GitHub Actionsのリモート実行結果（PR/Push後に利用者が確認）
 
 ## 本番の動作確認手順
 
