@@ -1,0 +1,25 @@
+name: CI
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm audit --omit=dev --audit-level=high
+      - run: docker build -t icloud-mail-mcp:ci .
+      - name: Reject production startup without secrets
+        run: |
+          if docker run --rm icloud-mail-mcp:ci; then
+            echo 'Missing configuration must fail closed.'
+            exit 1
+          fi

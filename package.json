@@ -1,0 +1,36 @@
+{
+  "name": "icloud-mail-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev:mock": "tsx src/mock-main.ts",
+    "start": "node dist/main.js",
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm run build && npm test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.31.0",
+    "express": "^5.2.1",
+    "html-to-text": "^10.0.1",
+    "imapflow": "^2.1.2",
+    "jose": "^6.2.12",
+    "mailparser": "^3.9.32",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/html-to-text": "^9.0.4",
+    "@types/mailparser": "^3.9.0",
+    "@types/node": "^26.6.3",
+    "prettier": "^3.9.9",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}
