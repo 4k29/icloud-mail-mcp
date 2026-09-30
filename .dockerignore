@@ -1,0 +1,9 @@
+.git
+.github
+.env*
+.mock-token
+node_modules
+dist
+coverage
+*.log
+tests
